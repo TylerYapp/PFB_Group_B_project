@@ -59,16 +59,10 @@ def netprofit():
              #shows 3 highest deficits, if else is to check for missing values and return nil
         profit_deficit.sort(reverse = True) #sorts in descending order to find highest deficits
         final_output += f"[HIGHEST PROFIT DEFICIT] DAY: {deficit_days[profit_deficit[0]]}, AMOUNT: SGD{profit_deficit[0]}\n"
-        if len(profit_deficit) > 1:
-            final_output += f"[2ND HIGHEST PROFIT DEFICIT] DAY: {deficit_days[profit_deficit[1]]}, AMOUNT: SGD{profit_deficit[1]}\n"
-        else:
-            final_output += "[2ND HIGHEST PROFIT DEFICIT] DAY: nil, AMOUNT: nil\n"
-        if len(profit_deficit) > 2:
-            final_output += f"[3RD HIGHEST PROFIT DEFICIT] DAY: {deficit_days[profit_deficit[2]]}, AMOUNT: SGD{profit_deficit[2]}\n"
-        else:
-            final_output += "[3RD HIGHEST PROFIT DEFICIT] DAY: nil, AMOUNT: nil\n"
+        final_output += f"[2ND HIGHEST PROFIT DEFICIT] DAY: {deficit_days[profit_deficit[1]]}, AMOUNT: SGD{profit_deficit[1]}\n"
+        final_output += f"[3RD HIGHEST PROFIT DEFICIT] DAY: {deficit_days[profit_deficit[2]]}, AMOUNT: SGD{profit_deficit[2]}\n"
         return final_output
 
 
     
-# print(netprofit()) #test
+print(netprofit()) #test
