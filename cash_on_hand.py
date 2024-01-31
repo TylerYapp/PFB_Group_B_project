@@ -42,3 +42,27 @@ def cashonhand():
             if difference > 0:
                 downward_trend = False #disables scenario 2 
             prev_cash_on_hand = cash_on_hand
+
+ #checks what code to run based on trend type
+    final_output = ""
+    if upward_trend == True: #Scenario 1, returns highest surplus
+        return f"""[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY
+[HIGHEST CASH SURPLUS] DAY: {highest_day}, AMOUNT: SGD{highest_surplus}\n"""
+    
+    elif downward_trend == True: #Scenario 2, returns highest deficit
+        cash_deficit.sort(reverse = True) #sorts in descending order to get highest deficit
+        return f"""[CASH DEFICIT] CASH ON EACH DAY IS LOWER THAN THE PREVIOUS DAY
+[HIGHEST CASH DEFICIT] DAY: {deficit_days[cash_deficit[0]]}, AMOUNT: SGD{cash_deficit[0]}\n"""
+    
+    else: #Scenario 3, returns all deficits and 3 highest deficits
+        for deficit in cash_deficit:
+            output = f"[CASH DEFICIT] DAY: {deficit_days[deficit]}, AMOUNT: SGD{deficit}"
+            final_output += output + '\n'
+            #shows 3 highest deficits, if else is to check for missing values and return nil
+        cash_deficit.sort(reverse = True) #sorts in descending order to find highest deficits
+        final_output += f"[HIGHEST CASH DEFICIT] DAY: {deficit_days[cash_deficit[0]]}, AMOUNT: SGD{cash_deficit[0]}\n"
+        final_output += f"[2ND HIGHEST CASH DEFICIT] DAY: {deficit_days[cash_deficit[1]]}, AMOUNT: SGD{cash_deficit[1]}\n"
+        final_output += f"[3RD HIGHEST CASH DEFICIT] DAY: {deficit_days[cash_deficit[2]]}, AMOUNT: SGD{cash_deficit[2]}\n"
+        return final_output
+    
+print(cashonhand())#test
