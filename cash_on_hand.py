@@ -65,4 +65,4 @@ def cashonhand():
         final_output += f"[3RD HIGHEST CASH DEFICIT] DAY: {deficit_days[cash_deficit[2]]}, AMOUNT: SGD{cash_deficit[2]}\n"
         return final_output
     
-print(cashonhand())#test
+# print(cashonhand())#test

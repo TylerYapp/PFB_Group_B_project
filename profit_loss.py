@@ -65,4 +65,4 @@ def netprofit():
 
 
     
-print(netprofit()) #test
+# print(netprofit()) #test
