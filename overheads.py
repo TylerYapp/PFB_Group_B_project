@@ -26,4 +26,3 @@ def topoverhead(): #finds the highest overhead
     # use the dictionary to find the category
     return f"[HIGHEST OVERHEAD] {overhead_dict[str(overhead_values[0])].upper()}: {overhead_values[0]}%"
 
-# print(topoverhead()) #test

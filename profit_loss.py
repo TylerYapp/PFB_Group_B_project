@@ -48,10 +48,12 @@ def netprofit():
     if upward_trend == True: #Scenario 1, returns highest surplus
         return f"""[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY
 [HIGHEST NET PROFIT SURPLUS] DAY: {highest_day}, AMOUNT: SGD{highest_surplus}\n"""
+    
     elif downward_trend == True: #Scenario 2, returns highest deficit
         profit_deficit.sort(reverse = True) #sorts in descending order to get highest deficit
         return f"""[NET PROFIT DEFICIT] NET PROFIT ON EACH DAY IS LOWER THAN THE PREVIOUS DAY
 [HIGHEST NET PROFIT DEFICIT] DAY: {deficit_days[profit_deficit[0]]}, AMOUNT: SGD{profit_deficit[0]}\n"""
+    
     else: #Scenario 3, returns all deficits and 3 highest deficits
         for deficit in profit_deficit: #lists all deficits
             output = f"[NET PROFIT DEFICIT] DAY: {deficit_days[deficit]}, AMOUNT: SGD{deficit}"
@@ -65,4 +67,3 @@ def netprofit():
 
 
     
-# print(netprofit()) #test
